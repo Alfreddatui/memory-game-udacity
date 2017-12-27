@@ -2,19 +2,23 @@
 
 ## Table of Contents
 
+* [Introduction](#introduction)
 * [Instructions](#instructions)
-* [Contributing](#contributing)
+
+## Introduction
+
+This project is a memory game where you need to match the cards. There are total of 16 cards and your score will depend on your total star (corresponding to number of moves) and your time to finish the game.
 
 ## Instructions
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+The project built by using HTML, CSS, and Javacript. The logic is controlled by the web API inside app.js.
+To try the game, you can clone this repo by typing
 
-To get started, open `js/app.js` and start building out the app's functionality
+```
+git clone https://github.com/Alfreddatui/memory-game-udacity.git
+```
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
+and open index.html
 
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
+Thank you to:
+![alt text](https://cdn.worldvectorlogo.com/logos/udacity-2.svg "Udacity")
