@@ -22,63 +22,76 @@
         		<li><i class="fa fa-star"></i></li>
         	</ul>
 
-        	<span class="moves">3</span> Moves
+        	<span class="moves">0</span> Moves
 
             <div class="restart">
-        		<i class="fa fa-repeat"></i>
+                <span class="time">00:00:00</span>
+        		<i class="fa fa-repeat" onclick="reset()"></i>
         	</div>
         </section>
 
         <ul class="deck">
             <li class="card">
-                <i class="fa fa-diamond"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
-            </li>
-            <li class="card match">
-                <i class="fa fa-anchor"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-bolt"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-cube"></i>
-            </li>
-            <li class="card match">
-                <i class="fa fa-anchor"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-leaf"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-bicycle"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-diamond"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-bomb"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-leaf"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-bomb"></i>
-            </li>
-            <li class="card open show">
-                <i class="fa fa-bolt"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-bicycle"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-paper-plane-o"></i>
+                <i class="fa"></i>
             </li>
             <li class="card">
-                <i class="fa fa-cube"></i>
+                <i class="fa"></i>
+            </li>
+            <li class="card">
+                <i class="fa"></i>
+            </li>
+            <li class="card">
+                <i class="fa"></i>
+            </li>
+            <li class="card">
+                <i class="fa"></i>
             </li>
         </ul>
+    </div>
+
+    <div class="win-message">
+        <div class="detail-win">
+            <h2>Congratulations, you win!</h2>
+            <div class="data-win">
+                <p>Total Moves&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;<span class="moves-result">5</span></p>
+                <p>Total Duration&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;<span class="time-result">00:12:05</span></p>
+                <p>Total Stars&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;<span class="stars-result"></span></p>
+                <button onclick="reset()" class="reset-button">PLAY AGAIN!</button>
+            </div>
+        </div>
     </div>
 
     <script src="js/app.js"></script>

@@ -63,6 +63,7 @@ h1 {
     justify-content: center;
     align-items: center;
     box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
+    transition: 0.1s ease-out;
 }
 
 .deck .card.open {
@@ -106,4 +107,51 @@ h1 {
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+.hide {
+    background: #2e3d49;
+}
+
+.win-message {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    background: linear-gradient(160deg, #02ccba 0%, #aa7ecd 100%);
+    width: 500px;
+    height: 300px;
+    left: 0;
+    right: 0;
+    top: 10%;
+    text-align: center;
+    opacity: 1;
+    padding-top: 30px;
+    display: none;
+}
+
+.detail-win {
+    text-align: center;
+}
+.detail-win h2 {
+    font-size: 35px;
+}
+
+.data-win {
+    width: 200px;
+    text-align: left;
+    margin: 0 auto;
+}
+
+.stars-result {
+    list-style: none !important;
+}
+
+.correct {
+    cursor: default;
+    background: #66cc00 !important;
+    font-size: 33px;
+}
+
+.wrong {
+    background: #cd1414 !important;
 }
