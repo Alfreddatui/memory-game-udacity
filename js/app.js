@@ -6,7 +6,7 @@ let compare = [];
 let moves = 0;
 
 //initialize timer, so the variable become global
-let time, hInit, mInit, sInit, t;
+let time, hourInit, minuteInit, secondInit, t;
 /*
  * Display the cards on the page
  *   - shuffle the list of cards using the provided "shuffle" method below
@@ -56,28 +56,28 @@ function checkTime(i) {
 
 function getTimeNow() {
     let today = new Date();
-    let h = today.getHours() - hInit;
-    let m = today.getMinutes() - mInit;
-    if (m < 0) {
-        m += 60;
-        h--;
+    let hour = today.getHours() - hourInit;
+    let minute = today.getMinutes() - minuteInit;
+    if (minute < 0) {
+        minute += 60;
+        hour--;
     }
-    let s = today.getSeconds() - sInit;
-    if (s< 0) {
-        s += 60;
-        m--;
+    let second = today.getSeconds() - secondInit;
+    if (second< 0) {
+        second += 60;
+        minute--;
     }
     // add a zero in front of numbers<10
-    h = checkTime(h);
-    m = checkTime(m);
-    s = checkTime(s);
+    hour = checkTime(hour);
+    minute = checkTime(minute);
+    second = checkTime(second);
 
-    return [h, m, s]
+    return [hour, minute, second]
 }
 
 function startTime() {
-    let [h, m, s] = getTimeNow();
-    document.querySelector('.time').innerHTML = h + ":" + m + ":" + s;
+    let [hour, minute, second] = getTimeNow();
+    document.querySelector('.time').innerHTML = hour + ":" + minute + ":" + second;
     t = setTimeout(function() {
         startTime()
     }, 500);
@@ -85,9 +85,9 @@ function startTime() {
 
 function initiateStopwatch() {
     time = new Date();
-    hInit = time.getHours();
-    mInit = time.getMinutes();
-    sInit = time.getSeconds();
+    hourInit = time.getHours();
+    minuteInit = time.getMinutes();
+    secondInit = time.getSeconds();
     document.removeEventListener('click', initiateStopwatch);
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////
@@ -109,48 +109,46 @@ function eventListener(e) { //event listener function
                     element.classList.toggle('correct');
                     setTimeout(() => {
                         element.classList.toggle('correct');
-                        element.classList.toggle('match');
                     }, 300);
+                    element.classList.toggle('match');
                 });
-                compare = [];
             } else { //cards does not match
                 document.removeEventListener('click', eventListener);
-                setTimeout(() => {
-                    compare.forEach(element => {
+                compare.forEach(element => {
+                    element.classList.toggle('wrong');
+                    setTimeout(() => {
                         element.classList.toggle('wrong');
-                        setTimeout(() => {
-                            element.classList.toggle('wrong');
-                            toggleCard(element);
-                        }, 300);
-                    });
-                    compare = [];
-                    document.addEventListener('click', eventListener);
-                }, 400);
+                    }, 300);
+                    toggleCard(element);
+                });
+                document.addEventListener('click', eventListener);
             }
+            compare = [];
 
             addMoves(); //increase moves number if compare array length == 2
 
-            if (moves > 40) { //delete stars if moves equal to some points
-                document.querySelector('.stars').innerHTML = '';
-            } else if (moves > 30) {
+            if (moves > 30) {
                 document.querySelector('.stars').innerHTML = '<li><i class="fa fa-star"></i></li>';  
-            } else if (moves >20) {
+            } else if (moves > 20) {
                 document.querySelector('.stars').innerHTML = '<li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>';
             } else {
                 document.querySelector('.stars').innerHTML = '<li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li> <li><i class="fa fa-star"></i></li>';
             }
 
+            console.log(document.querySelectorAll('.match').length);
+            
             //If all cards match, run this
             if (document.querySelectorAll('.match').length == 16) {
+                console.log("HAHAHAA")
                 let totalStars = document.querySelectorAll('.fa-star').length;
                 let scoreStar = '';
                 for (let i = 0; i < totalStars; i++) {
                     scoreStar += '<i class="fa fa-star"></i>';
                 }
 
-                let [h, m, s] = getTimeNow();
+                let [hour, minute, second] = getTimeNow();
                 document.querySelector('.moves-result').innerHTML = moves;
-                document.querySelector('.time-result').innerHTML = h + ":" + m + ":" + s;
+                document.querySelector('.time-result').innerHTML = hour + ":" + minute + ":" + second;
                 document.querySelector('.stars-result').innerHTML = scoreStar;
                 document.querySelector('.win-message').style.display = "inline-block";
             }

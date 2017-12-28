@@ -153,5 +153,7 @@ h1 {
 }
 
 .wrong {
+    cursor: default;
     background: #cd1414 !important;
+    font-size: 33px;
 }
